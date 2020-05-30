@@ -30,7 +30,7 @@ hash_map是SGI实现，而unordered_map是C++11标准中新增的。它们都是
 
 链表是特殊化的树，树是特殊化的图
 
-```
+``` C++
 struct TreeNode {
      int val;
      TreeNode *left;
@@ -41,7 +41,7 @@ struct TreeNode {
 
 前序 根-左-右
 
-```
+``` C++
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -66,7 +66,7 @@ public:
 
 中序 左-根-右
 
-```
+``` C++
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
