@@ -8,6 +8,7 @@
 * 中序遍历迭代算法
 
 ## 前序遍历迭代算法：
+[二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
 
 二叉树的遍历，整体上看都是好理解的。
 
@@ -56,7 +57,7 @@ while(p || S不空){
 ```
 ## 后序遍历迭代算法：
 
-二叉树的后序遍历
+[二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
 
 有两种方法。第一种比第二种要容易理解，但多了个结果逆序的过程。
 
@@ -165,7 +166,7 @@ while(p || S不空){
 ``` 
 ## 中序遍历迭代算法:
 
-二叉树的中序遍历
+[二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/die-dai-fa-by-jason-2/)
 
 思路：每到一个节点 A，因为根的访问在中间，将 A 入栈。然后遍历左子树，接着访问 A，最后遍历右子树。
 
