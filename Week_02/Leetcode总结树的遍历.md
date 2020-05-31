@@ -55,6 +55,27 @@ while(p || S不空){
         return v;        
     }
 ```
+
+代码 version2：
+
+```c++
+vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        stack<TreeNode*> s;
+        TreeNode* cur = root;
+
+        if(root == nullptr) return res;
+        s.push(root);
+        while(s.size()){
+            cur = s.top();
+            s.pop();
+            res.push_back(cur->val);
+            if(cur->right != nullptr) s.push(cur->right);
+            if(cur->left != nullptr) s.push(cur->left);
+        }
+        return res;
+    }
+```
 ## 后序遍历迭代算法：
 
 [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
@@ -103,6 +124,30 @@ while(p || S不空){
         }
         reverse(v.begin(),v.end());
         return v;
+    }
+```
+代码 version2：
+
+```c++
+vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res;
+        stack<TreeNode*> s;
+
+        if(root == nullptr) return res;
+        TreeNode* cur = root;
+        s.push(root);
+
+        while(s.size()){
+            cur = s.top();
+            s.pop();
+            res.push_back(cur->val);
+            
+            if(cur->left != nullptr) s.push(cur->left);
+            if(cur->right != nullptr) s.push(cur->right);
+        }
+        reverse(res.begin(), res.end());
+
+        return res;
     }
 ```
 ### 第二种方法：
