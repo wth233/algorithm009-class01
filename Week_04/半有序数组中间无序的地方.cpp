@@ -14,8 +14,8 @@ public:
         while(l <= r){
             int mid = (l + r) >> 1;
 
-            if(mid + 1 < nums.size() - 1 && nums[mid] > nums[mid + 1]) return mid + 1;
-            if(mid - 1 > 0 && nums[mid - 1] > nums[mid]) return mid;
+            if(mid + 1 <= nums.size() - 1 && nums[mid] > nums[mid + 1]) return mid + 1;
+            if(mid - 1 >= 0 && nums[mid - 1] > nums[mid]) return mid;
 
             if(nums[l] <= nums[mid]){
                 //左边有序 查右边
