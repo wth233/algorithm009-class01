@@ -19,39 +19,56 @@
 
 class Solution {
 public:
-    //暴力法
-    // vector<int> twoSum(vector<int>& nums, int target) {
-    //     vector<int> result;
-    //     for(int i = 0; i < nums.size(); i++){
-    //         int new_target = target - nums[i];
-    //         for(int j = i+1; j<nums.size();j++){
-    //             if(nums[j] == new_target){
-    //                 result.push_back(i);
-    //                 result.push_back(j);
-    //                 }
-    //         }
-    //     }
-    //     if(result.size()!=0)
-    //         return result;
-    //     else{
-    //         result = {-1, -1};
-    //         return result;
-    //     }
-    // }
-
-    //hash map
     vector<int> twoSum(vector<int>& nums, int target) {
-    map<int, int> record;
-    vector<int> result;
-    for(int i = 0 ; i < nums.size() ; i ++){
-        int complement = target - nums[i];
-        if(record.find(complement)!= record.end()) {
-            result.push_back(record[complement]);
-            result.push_back(i);
-            return result;
-        }
-        record[nums[i]] = i;
+        //暴力 O(n^2)
+        //i: 0 ~ size, j: i ~ size, nums[j] == target - nums[i]，放res return
+        // vector<int> res;
+        // for(int i = 0; i < nums.size(); ++i){
+        //     for(int j = i + 1; j < nums.size(); ++j){
+        //         if(nums[j] == target - nums[i]){
+        //             res.push_back(i);
+        //             res.push_back(j);
+        //         }
+        //     }
+        // }
+        // return res;
+
+        //hash O(n)
+        //一遍hash先存 数:下标
+        //两遍hash找target - nums[i]，且不能是当前下标
+        // vector<int> res;
+        // unordered_map<int, int> hashmap;
+        // for(int i = 0; i < nums.size(); ++i){
+        //     hashmap[nums[i]] = i;
+        // }
+        // unordered_map<int, int>::iterator it;
+        
+        // for(int i = 0; i < nums.size(); ++i){
+        //     if(hashmap.find(target - nums[i]) != hashmap.end() 
+        //     && hashmap[target - nums[i]] != i){
+        //         res.push_back(i);
+        //         res.push_back(hashmap[target - nums[i]]);
+        //         return res;
+        //     }
+        // }
+        // return {};
+
+        //一遍hash
+        vector<int> twoSum(vector<int>& nums, int target){
+            vector<int> res;
+            unordered_map<int, int> hashmap;
+
+            for(int i = 0; i < nums.size(); ++i){
+
+                if(hashmap.find(target - nums[i]) != hashmap.end()){
+                    res.push_back(hashmap[target - nums[i]]);
+                    res.push_back(i);
+                    return res;
+                }
+                hashmap[nums[i]] = i;
+            }
+        return {};
     }
-    return {-1, -1};
-}
+
+    }
 };
